@@ -1,11 +1,7 @@
 ---
-:benchmark: false
-:backtrace: false
-:update_sources: true
-:bulk_threshold: 1000
-:verbose: true
+gem: <%= node[:rubygems][:default_options] %>
 :sources:
 - http://gemcutter.org/
-<% @node[:rubygems][:sources].each do |source| -%>
+<% node[:rubygems][:sources].each do |source| -%>
 - http://<%= source %>
 <% end -%>
