@@ -1,7 +1,7 @@
 ---
 gem: <%= node[:rubygems][:default_options] %>
 :sources:
-- http://gemcutter.org/
+- http://rubygems.org/
 <% node[:rubygems][:sources].each do |source| -%>
 - http://<%= source %>
 <% end -%>
