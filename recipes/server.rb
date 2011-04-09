@@ -7,4 +7,6 @@
 # All rights reserved - Do Not Redistribute
 #
 
-ree_gem "builder"
+include_recipe "rvm::install"
+
+rvm_gem "builder"
