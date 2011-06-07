@@ -9,7 +9,9 @@ end
 # only some nested directory inside the RVM folders.
 ruby_block "rvm-gemrc" do
   block do
-    `mkdir -p #{File.dirname(node[:languages][:ruby][:system_gemrc])} && cp -p /etc/gemrc #{node[:languages][:ruby][:system_gemrc]}`
+    if node[:languages][:ruby][:system_gemrc] != "/etc/gemrc"
+      `mkdir -p #{File.dirname(node[:languages][:ruby][:system_gemrc])} && cp -p /etc/gemrc #{node[:languages][:ruby][:system_gemrc]}`
+    end
   end
 end
 
