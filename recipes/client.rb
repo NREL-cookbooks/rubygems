@@ -15,6 +15,11 @@ ruby_block "rvm-gemrc" do
   end
 end
 
+execute "uninstall old rubygems-update" do
+  command "/usr/local/bin/rvm default exec gem uninstall -a rubygems-update"
+  only_if "/usr/local/bin/rvm default exec gem list rubygems-update | grep ,"
+end
+
 rvm_gem "rubygems-update" do
   version node[:rubygems][:version]
   not_if { `/usr/local/bin/rvm default exec gem -v`.chomp == node[:rubygems][:version] }
