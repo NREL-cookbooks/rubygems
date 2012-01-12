@@ -1,6 +1,6 @@
 maintainer        "37signals"
 maintainer_email  "sysadmins@37signals.com"
 description       "Configures rubygems"
-version           "0.1"
+version           "0.1.1"
 depends           "apache2"
 depends           "rvm"
