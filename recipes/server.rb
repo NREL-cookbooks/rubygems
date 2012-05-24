@@ -7,6 +7,8 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include_recipe "rvm::install"
+include_recipe "rbenv::global_version"
 
-rvm_gem "builder"
+rbenv_gem "builder" do
+  ruby_version node[:rbenv][:install_global_version]
+end
