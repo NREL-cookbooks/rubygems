@@ -29,6 +29,8 @@ rbenv_gem "rubygems-update" do
   ruby_version node[:rbenv][:install_global_version]
 end
 
-execute "rbenv exec update_rubygems" do
-  not_if { `gem -v`.chomp == node[:rubygems][:version] }
+execute "#{node[:rbenv][:install_prefix]}/rbenv/shims/update_rubygems" do
+  not_if do
+    `#{node[:languages][:ruby][:gem_bin]} -v`.strip == node[:rubygems][:version]
+  end
 end
