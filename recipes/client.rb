@@ -16,8 +16,7 @@ ruby_block "rbenv-gemrcs" do
       version_gemrc = "#{version_etc}/gemrc"
 
       ::FileUtils.mkdir(version_etc) unless(::File.directory?(version_etc))
-      ::FileUtils.chmod(0775, version_etc)
-      ::FileUtils.chown("rbenv", "rbenv", version_etc)
+      ::FileUtils.chmod(0755, version_etc)
 
       ::FileUtils.ln_s("/etc/gemrc", version_gemrc) unless(::File.exists?(version_gemrc))
     end
